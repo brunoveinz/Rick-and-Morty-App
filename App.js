@@ -1,20 +1,39 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import {Text, View } from 'react-native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
+import Welcome from './screens/Welcome';
+import Main from './screens/Main';
+import Characters from './screens/Characters';
+import GlobalStyes from './constants/GlobalStyles'
+
+const Stack = createNativeStackNavigator();
+
+const screenOptions = {
+  headerStyle: {
+    backgroundColor: GlobalStyes.colors.portalGreen,
+  },
+  headerTintColor: 'black',
+  headerTitleStyle: {
+    fontSize: 20,
+  },
+  contentStyle: {
+    backgroundColor: GlobalStyes.colors.spaceGray,
+  },
+};
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={screenOptions}>
+        <Stack.Screen name="Welcome" component={Welcome} options={{headerShown:false}} />
+        <Stack.Screen name="Main" component={Main} options={{title:'Categorias', headerBackTitle:'Volver', headerShown:false}}/>
+        <Stack.Screen name="Characters" component={Characters} options={{title: 'Personajes', headerShown:false}}/>
+      </Stack.Navigator>
+    </NavigationContainer>
+    </>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
