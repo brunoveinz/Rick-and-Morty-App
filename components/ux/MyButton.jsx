@@ -20,7 +20,8 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 20,
         color: 'black',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        fontFamily: 'Creepster-Regular'
 
     },
     button:{

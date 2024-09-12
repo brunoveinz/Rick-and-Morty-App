@@ -1,20 +1,20 @@
 import { StyleSheet, Text, View, Button, Image} from 'react-native'
-import React from 'react'
+import React, {useEffect} from 'react'
 import GlobalStyles from '../constants/GlobalStyles'
 import MyButton from '../components/ux/MyButton'
-import Portada from '../assets/gato.png'
+import Mundos from '../assets/mundos.png'
 
-const Welcome = ({navigation}) => {
-  
+const Welcome = ({navigation}) => {  
   function ContinueMainHandler(){
     navigation.navigate('Main')
   }
 
   return (
     <View style={styles.container}>
-      <Image source={Portada} style={styles.image}></Image>
+      <Text style={styles.created}>Created by Bveinz</Text>
+      <Image source={Mundos} style={styles.image} resizeMode='contain'></Image>
       <Text style={GlobalStyles.text.heading}>Rick And Morty Library!</Text>
-      <MyButton title='Continuar' onPress={ContinueMainHandler}/>
+      <MyButton title='Continuar' onPress={ContinueMainHandler} color={GlobalStyles.colors.portalGreen}/>
     </View>
   )
 }
@@ -28,8 +28,12 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     image:{
-        width: 150,
-        height: 300,
-    }
-    
+        width: 200,
+        height: 400,
+    },
+    created:{
+      color: GlobalStyles.colors.portalGreen,
+      fontFamily: 'Creepster-Regular'
+    },
+  
 })

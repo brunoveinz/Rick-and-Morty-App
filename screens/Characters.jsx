@@ -6,7 +6,7 @@ import { ObtenerPersonajes } from '../api/Characters/AllCharacters';
 import * as SplashScreen from 'expo-splash-screen'; // Asegúrate de importar SplashScreen
 
 function App() {
-  const [personajes, setPersonajes] = useState([]);
+  const [Personajes, setPersonajes] = useState([]);
   const [appIsReady, setAppIsReady] = useState(false);
 
 
@@ -29,7 +29,7 @@ function App() {
   if (!appIsReady) {
     return (
       <SafeAreaView style={styles.loadingContainer} onLayout={onLayoutRootView}>
-        <ActivityIndicator size="large" color="white" />
+        <ActivityIndicator size="large" color={GlobalStyles.colors.portalGreen} />
       </SafeAreaView>
     );
   }
@@ -38,7 +38,7 @@ function App() {
     <SafeAreaView style={styles.container}>
       <Text style={GlobalStyles.text.heading}>Personajes</Text>
       <FlatList
-        data={personajes}
+        data={Personajes}
         renderItem={({ item })=> <CharacterItem personaje={item}/>}
         keyExtractor={item => item.id.toString()}
       />

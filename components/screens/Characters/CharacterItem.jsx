@@ -10,9 +10,6 @@ const CharacterItem = ({personaje}) => {
         <Text style={styles.name}>{personaje.name}</Text>
         <Text style={styles.info}>Status: {personaje.status}</Text>
         <Text style={styles.info}>Species: {personaje.species}</Text>
-        <Text style={styles.info}>Gender: {personaje.gender}</Text>
-        <Text style={styles.info}>Origin: {personaje.origin.name}</Text>
-        <Text style={styles.info}>Location: {personaje.location.name}</Text>
       </View>
     </View>
   );
@@ -23,10 +20,10 @@ export default CharacterItem
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      marginBottom: 5,
+      marginBottom: 30,
     },
     title: {
-      fontSize: 24,
+      fontSize: 30,
       fontWeight: 'bold',
       textAlign: 'center',
       margin: 10,
@@ -36,8 +33,9 @@ const styles = StyleSheet.create({
       padding: 10,
       marginVertical: 8,
       marginHorizontal: 16,
-      backgroundColor: GlobalStyles.colors.portalGreen,
+      backgroundColor: GlobalStyles.colors.mortyOrange,
       borderRadius: 10,
+      marginBottom: 30,
       shadowColor: "#000",
       shadowOffset: {
         width: 0,
@@ -48,8 +46,8 @@ const styles = StyleSheet.create({
       elevation: 4,
     },
     image: {
-      width: 100,
-      height: 100,
+      width: 120,
+      height: 120,
       borderRadius: 50,
     },
     infoContainer: {
@@ -57,12 +55,14 @@ const styles = StyleSheet.create({
       marginLeft: 10,
     },
     name: {
-      fontSize: 24,
-      fontWeight: 'bold',
-      marginBottom: 5,
+      fontSize: 30,
+      textAlign:'center',
+      fontFamily: 'Creepster-Regular',
+      marginBottom: 10
     },
     info: {
-      fontSize: 14,
-      color: 'black',
+      textAlign: 'center',
+      fontSize: 15,
+      color: 'black', 
     },
   });

@@ -6,6 +6,7 @@ import Welcome from './screens/Welcome';
 import Main from './screens/Main';
 import Characters from './screens/Characters';
 import GlobalStyes from './constants/GlobalStyles'
+import Chapters from './screens/Chapters';
 
 const Stack = createNativeStackNavigator();
 
@@ -30,6 +31,7 @@ export default function App() {
         <Stack.Screen name="Welcome" component={Welcome} options={{headerShown:false}} />
         <Stack.Screen name="Main" component={Main} options={{title:'Categorias', headerBackTitle:'Volver', headerShown:false}}/>
         <Stack.Screen name="Characters" component={Characters} options={{title: 'Personajes', headerShown:false}}/>
+        <Stack.Screen name="Chapters" component={Chapters} options={{title: 'Capitulos', headerShown:false}}/>
       </Stack.Navigator>
     </NavigationContainer>
     </>
