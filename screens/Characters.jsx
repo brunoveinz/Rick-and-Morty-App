@@ -1,22 +1,38 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, FlatList, Image, StyleSheet, SafeAreaView } from 'react-native';
-import axios from 'axios';
+import React, { useState, useEffect, useCallback } from 'react';
+import { Text, FlatList, StyleSheet, SafeAreaView, ActivityIndicator } from 'react-native';
 import GlobalStyles from '../constants/GlobalStyles'
-import { Personaje } from '../models/Personajes';
 import CharacterItem from '../components/screens/Characters/CharacterItem';
 import { ObtenerPersonajes } from '../api/Characters/AllCharacters';
+import * as SplashScreen from 'expo-splash-screen'; // Asegúrate de importar SplashScreen
 
 function App() {
   const [personajes, setPersonajes] = useState([]);
+  const [appIsReady, setAppIsReady] = useState(false);
+
 
   useEffect(() => {
     const fetchPersonajes = async () => {
       const personajesData = await ObtenerPersonajes()
       setPersonajes(personajesData)
+      setAppIsReady(true)
     };
 
     fetchPersonajes();
   }, []);
+
+  const onLayoutRootView = useCallback(async () => {
+    if (appIsReady) {
+      await SplashScreen.hideAsync();
+    }
+  }, [appIsReady]);
+
+  if (!appIsReady) {
+    return (
+      <SafeAreaView style={styles.loadingContainer} onLayout={onLayoutRootView}>
+        <ActivityIndicator size="large" color="white" />
+      </SafeAreaView>
+    );
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -33,7 +49,13 @@ function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  loadingContainer: {
+    flex:1,
+    justifyContent: 'center',
+    alignContent: 'center'
   }
+
 });
 
 export default App;
