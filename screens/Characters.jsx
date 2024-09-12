@@ -36,7 +36,7 @@ function App() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={GlobalStyles.text.heading}>Personajes</Text>
+      <Text style={styles.heading}>Personajes</Text>
       <FlatList
         data={Personajes}
         renderItem={({ item })=> <CharacterItem personaje={item}/>}
@@ -54,7 +54,14 @@ const styles = StyleSheet.create({
     flex:1,
     justifyContent: 'center',
     alignContent: 'center'
-  }
+  },
+  heading: {
+    fontSize: 50,
+    color: '#ff9800',
+    textAlign: 'center',
+    marginButton: 20,
+    fontFamily: 'Creepster-Regular'
+  },
 
 });
 

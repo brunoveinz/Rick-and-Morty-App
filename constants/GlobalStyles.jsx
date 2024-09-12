@@ -4,34 +4,30 @@ const Styles = {
     rickBlue: '#55aae0',
     mortyOrange: '#ff9800',
     alienPurple: '#8e44ad',
-    spaceGray: '#2c3e50'
+    spaceGray: '#2c3e50',
   },
   text: {
-    fontFamily: 'Creepster-Regular', // Fuente global definida aquí
+    fontFamily: 'Creepster-Regular', // Asegúrate de que esta fuente esté cargada correctamente
     heading: {
-      fontSize: 50, // Tamaños de fuente en números, no en px
-      fontWeight: 'bold',
+      fontSize: 50, // Debe ser un número, no una cadena de texto
       color: '#ff9800',
       textAlign: 'center',
-      margin: 20,
-      fontFamily: 'Creepster-Regular', // Aplicar la fuente a títulos
+      margin: 20, // Cambia marginButton a margin (también debe ser un número)
     },
     body: {
-      fontSize: 16,
+      fontSize: 16, // Debe ser un número, no una cadena de texto
       fontWeight: 'normal',
       color: '#333333',
-      fontFamily: 'Creepster-Regular', // Aplicar la fuente al cuerpo del texto
-    }
+    },
   },
   button: {
-    backgroundColor: '#97ce4c', 
+    backgroundColor: '#97ce4c',
     color: '#ffffff',
-    padding: 10, // En lugar de px, usar valores numéricos
-    borderRadius: 5,
+    padding: 10, // Debe ser un número, no una cadena de texto
+    borderRadius: 5, // Debe ser un número, no una cadena de texto
     border: 'none',
-    cursor: 'pointer',
-    fontFamily: 'Creepster-Regular', // Aplicar la fuente al botón
-  }
+    cursor: 'pointer', // 'cursor: pointer' no es aplicable en React Native
+  },
 };
 
 export default Styles;

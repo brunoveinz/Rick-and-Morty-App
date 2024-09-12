@@ -39,7 +39,6 @@ const styles = StyleSheet.create({
   },
   name: {
     fontSize: 25,
-    fontWeight: 'bold',
     color: 'white',
     marginBottom: 5,
     fontFamily: 'Creepster-Regular',
